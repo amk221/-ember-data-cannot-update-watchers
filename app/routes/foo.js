@@ -3,6 +3,7 @@ import RSVP from 'rsvp';
 import jQuery from 'jquery';
 import { later } from '@ember/runloop';
 const { Promise, hash } = RSVP;
+const someCondition = true;
 
 export default Route.extend({
   model() {
@@ -17,7 +18,7 @@ export default Route.extend({
   },
 
   resetController(controller, isExiting) {
-    if (isExiting) {
+    if (isExiting && someCondition) {
       console.log('unloading foo');
       controller.get('foo').unloadRecord();
     }
